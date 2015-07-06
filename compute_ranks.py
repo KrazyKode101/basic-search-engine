@@ -7,12 +7,13 @@ def get_len_between(graph,visited,page1,page2):
         else:
             return 1
     else:
-        minimum = 10000
+        minimum = float('inf')
         for e in outlinks:                
             if e not in visited:
                 length = 1 + get_len_between(graph,visited,e,page2)
-                if length < minimum:
+                if minimum==None or length < minimum:
                     minimum = length
+
         return minimum                                            
 
 def get_len_between_utility(graph,page1,page2):
