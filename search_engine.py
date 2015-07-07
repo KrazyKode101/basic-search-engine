@@ -60,32 +60,36 @@ def crawl_web(seed): # returns index, graph of inlinks
             crawled.append(page)
     return index, graph
 
-#crawl web   
-index, graph = crawl_web('http://udacity.com/cs101x/urank/index.html')
+def main():
+    #crawl web   
+    index, graph = crawl_web('http://udacity.com/cs101x/urank/index.html')
 
-#compute ranks
-from compute_ranks import compute_ranks
-ranks = compute_ranks(graph,10) #where rank is [url] = [a number indicating rank of the web page]
+    #compute ranks
+    from compute_ranks import compute_ranks
+    ranks = compute_ranks(graph,10) #where rank is [url] = [a number indicating rank of the web page]
 
-#perform search
-from search_util import ordered_search
+    #perform search
+    from search_util import ordered_search
 
-# Here are some example showing what ordered_search should do:
-# Observe that the result list is sorted so the highest-ranking site is at the
-# beginning of the list.
+    # Here are some example showing what ordered_search should do:
+    # Observe that the result list is sorted so the highest-ranking site is at the
+    # beginning of the list.
 
-print ordered_search(index, ranks, 'Hummus')
-#>>> ['http://udacity.com/cs101x/urank/kathleen.html',
-#    'http://udacity.com/cs101x/urank/nickel.html',
-#    'http://udacity.com/cs101x/urank/arsenic.html',
-#    'http://udacity.com/cs101x/urank/hummus.html',
-#    'http://udacity.com/cs101x/urank/index.html']
+    print ordered_search(index, ranks, 'Hummus')
+    #>>> ['http://udacity.com/cs101x/urank/kathleen.html',
+    #    'http://udacity.com/cs101x/urank/nickel.html',
+    #    'http://udacity.com/cs101x/urank/arsenic.html',
+    #    'http://udacity.com/cs101x/urank/hummus.html',
+    #    'http://udacity.com/cs101x/urank/index.html']
 
-print ordered_search(index, ranks, 'the')
-#>>> ['http://udacity.com/cs101x/urank/nickel.html',
-#    'http://udacity.com/cs101x/urank/arsenic.html',
-#    'http://udacity.com/cs101x/urank/hummus.html',
-#    'http://udacity.com/cs101x/urank/index.html']
+    print ordered_search(index, ranks, 'the')
+    #>>> ['http://udacity.com/cs101x/urank/nickel.html',
+    #    'http://udacity.com/cs101x/urank/arsenic.html',
+    #    'http://udacity.com/cs101x/urank/hummus.html',
+    #    'http://udacity.com/cs101x/urank/index.html']
 
-print ordered_search(index, ranks, 'babaganoush')
-#>>> None
+    print ordered_search(index, ranks, 'babaganoush')
+    #>>> None
+
+if __name__ == '__main__':
+    main()

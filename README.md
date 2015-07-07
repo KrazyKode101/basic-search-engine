@@ -4,3 +4,6 @@ a basic search engine for beginners with the below capabilties:
   - dictionary based lookup
   - ranking web pages using PageRank(tm) algorithm
   - combatting link spam using colluding factor between conspiring web pages
+  
+  how to execute:
+  python ./search_engine.py
