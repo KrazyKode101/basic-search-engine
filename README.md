@@ -1,5 +1,5 @@
 
-# basic_search_engine
+# basic search engine
 a basic search engine for beginners with the below capabilties:
   - "maximum depth from seed page" crawler
   - dictionary based lookup
